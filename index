@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Dy</a>
+    </header>
+    
+    <section class="home">
+        <div class="home-img animate-on-scroll slide-right">
+            <img src="toji_png.jpg" alt="Profile Picture"> 
+        </div>
+        <div class="home-content animate-on-scroll slide-left">
+            <h1>Hi, It's <span class="fade-up-text">Dy</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>I'm an experienced AMV editor on Instagram, recognized for delivering high-quality, engaging content and actively contributing to the community. Currently, I am also a student specializing in Networking and Cybersecurity, which gives me a strong foundation in both creative digital production and technical networking skills.</p>
+            
+            <div class="section-links">
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#languages">Languages</a>
+                <a href="#certificates">Certificates</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/diogo-machado-921025319/"><i class="fa-brands fa-linkedin"></i></a> 
+                <a href="https://github.com/pyksuki"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/antikvn/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Hire me</a>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading animate-on-scroll slide-left">My <span>Skills</span></h2>
+
+        <div class="skills-description-bar animate-on-scroll slide-up">
+            <p>I combine creative video editing and motion graphics with a technical foundation in networking and cybersecurity.</p>
+        </div>
+
+        <div class="skills-container">
+            <div class="skills-box manga-skill animate-on-scroll slide-up" style="--i:0;">
+                <i class="fa-solid fa-book-open"></i>
+                <h3>MANGA Edits</h3>
+                <div class="skills-preview">
+                    <video controls loop muted autoplay playsinline style="width:100%; height:100%; border-radius: 10px; object-fit: cover;">
+                        <source src="gojo2_amv.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="skills-box amv-skill animate-on-scroll slide-up" style="--i:1;">
+                <i class="fa-solid fa-film"></i>
+                <h3>AMV Editing</h3>
+                <div class="skills-preview">
+                    <video controls loop muted autoplay playsinline style="width:100%; height:100%; border-radius: 10px; object-fit: cover;">
+                        <source src="gojo_amv.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="heading animate-on-scroll slide-right">My <span>Education</span></h2>
+
+        <div class="education-content">
+            <div class="education-box animate-on-scroll slide-up" style="--i:0;">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Level 4 Degree in Computer Management</h3>
+                <p>This degree provided a strong technical foundation, ensuring deep knowledge of **computer hardware**, **software installation**, and **program management**. I gained comprehensive understanding of how computer systems operate and how to maintain them efficiently.</p>
+            </div>
+
+            <div class="education-box animate-on-scroll slide-up" style="--i:1;">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>Current Studies & Certifications</h3>
+                <p>I am currently focused on advancing my technical expertise by actively studying for two key certifications:</p>
+                <ul>
+                    <li>**CCNA (Cisco Certified Network Associate)**: Developing expert-level skills in network fundamentals, access, IP connectivity, and security.</li>
+                    <li>**Linux Essentials**: Building a strong base in the Linux operating system, command-line usage, and basic open-source concepts.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="languages" id="languages">
+        <h2 class="heading animate-on-scroll slide-left">Language <span>Skills</span></h2>
+
+        <div class="languages-container education-content">
+            
+            <div class="education-box animate-on-scroll slide-up" style="--i:0;">
+                <i class="fa-solid fa-flag-usa"></i>
+                <h3>English - C2 Proficiency</h3>
+                <p>Achieved **C2-level proficiency**, ensuring fluent and sophisticated communication. This mastery allows for full comprehension of complex technical documentation, effective international collaboration, and high-level academic writing required in cybersecurity and networking fields.</p>
+            </div>
+
+            <div class="education-box animate-on-scroll slide-up" style="--i:1;">
+                <i class="fa-solid fa-language"></i>
+                <h3>Japanese - N5 Certified</h3>
+                <p>Completed the Japanese Language Proficiency Test (**JLPT N5**). This provides a foundational ability in reading basic Japanese and communicating in common daily situations, complementing my interest in Asian media and culture.</p>
+            </div>
+            
+            <div class="education-box animate-on-scroll slide-up" style="--i:2;">
+                <i class="fa-solid fa-globe"></i>
+                <h3>Portuguese - Native</h3>
+                <p>Native speaker proficiency.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="certificates" id="certificates">
+        <h2 class="heading animate-on-scroll slide-right">My <span>Certificates</span></h2>
+
+        <div class="certificates-container">
+            <div class="certificate-card animate-on-scroll slide-up" style="--i:0;">
+                <i class="fa-solid fa-computer"></i>
+                <h3>IT Essentials</h3>
+                <p>Successfully completed the **IT Essentials** course. This course was offered by **ATEC** through the Cisco Networking Academy program.</p>
+                <span class="completion-date">Completed: 19 Sep 2025</span>
+            </div>
+
+            <div class="certificate-card animate-on-scroll slide-up" style="--i:1;">
+                <i class="fa-solid fa-ethernet"></i>
+                <h3>CCNA: Introduction to Networks</h3>
+                <p>Successfully completed the **CCNA: Introduction to Networks** course, the first step toward CCNA certification. Offered by **ATEC** through the Cisco Networking Academy program.</p>
+                <span class="completion-date">Completed: 28 May 2025</span>
+            </div>
+
+            <div class="certificate-card animate-on-scroll slide-up" style="--i:2;">
+                <i class="fa-solid fa-wifi"></i>
+                <h3>CCNA: Switching, Routing, and Wireless Essentials</h3>
+                <p>Successfully completed the **CCNA: Switching, Routing, and Wireless Essentials** course, enhancing skills in network infrastructure. Offered by **ATEC** through the Cisco Networking Academy program.</p>
+                <span class="completion-date">Completed: 15 Jul 2025</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. SCROLL-TRIGGERED ANIMATIONS (Intersection Observer API)
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            // Fallback for prefers-reduced-motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (prefersReducedMotion) {
+                elements.forEach(el => el.classList.add('show'));
+            } else {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = entry.target;
+                            // Add 'show' class to trigger the CSS transition
+                            target.classList.add('show');
+                            
+                            // Optional: Introduce a small stagger delay using the custom property
+                            const delay = target.style.getPropertyValue('--i') * 0.1; // 0.1s per increment
+                            if (delay !== 0) {
+                                target.style.transitionDelay = `${delay}s`;
+                            }
+
+                            // Once visible, stop observing
+                            observer.unobserve(target);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px',
+                    threshold: 0.2 // Trigger when 20% of the element is visible
+                });
+
+                elements.forEach(el => observer.observe(el));
+            }
+
+
+            // 2. STICKY HEADER EFFECT
+            const header = document.querySelector('header');
+            
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    // Add subtle background when scrolled down
+                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'; 
+                    header.style.backdropFilter = 'blur(5px)'; // Modern aesthetic
+                } else {
+                    // Keep it transparent at the top
+                    header.style.backgroundColor = 'transparent';
+                    header.style.backdropFilter = 'none';
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Call once on load to set initial state
+        });
+    </script>
+    
+</body>
+</html>
