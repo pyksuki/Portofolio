@@ -1,0 +1,729 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* --- SASS-like mixin for CSS Stars: This block is required for the star effect --- */
+/* The long box-shadow strings create the star field */
+/* REMOVED SASS VARIABLE DEFINITIONS AND PLACED THEM DIRECTLY INTO THE CSS RULES BELOW */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    /* REQUIRED FOR STAR EFFECT: position relative so stars can be absolute children */
+    position: relative; 
+    z-index: 1; /* Ensure body content is above stars */
+}
+
+/* --- STAR EFFECT CSS --- */
+
+/* Keyframes for the star animation: makes them slowly drift down-right */
+@keyframes animateStar {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(2000px, 1000px); 
+    }
+}
+
+/* Star Layer 1: Small, Fast Stars (Dense Layer) */
+body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    z-index: -1;
+    /* DIRECTLY INJECTED THE VALUE OF $star-shadows-small */
+    box-shadow: 10px 10px #FFF, 50px 200px #FFF, 150px 300px #FFF, 300px 50px #FFF, 400px 450px #FFF, 550px 60px #FFF, 650px 350px #FFF, 750px 500px #FFF, 900px 100px #FFF, 1050px 250px #FFF, 1200px 400px #FFF, 1350px 150px #FFF, 1500px 300px #FFF, 1650px 50px #FFF, 1800px 450px #FFF, 1950px 200px #FFF, 2100px 350px #FFF, 2250px 100px #FFF, 2400px 500px #FFF, 2550px 250px #FFF, 2700px 400px #FFF, 2850px 150px #FFF, 3000px 300px #FFF, 10px 600px #FFF, 150px 700px #FFF, 300px 850px #FFF, 400px 950px #FFF, 550px 650px #FFF, 650px 800px #FFF, 750px 950px #FFF, 900px 700px #FFF, 1050px 850px #FFF, 1200px 600px #FFF, 1350px 750px #FFF, 1500px 900px #FFF, 1650px 650px #FFF, 1800px 800px #FFF, 1950px 950px #FFF, 2100px 700px #FFF, 2250px 850px #FFF, 2400px 600px #FFF, 2550px 750px #FFF, 2700px 900px #FFF, 2850px 650px #FFF, 3000px 800px #FFF, 10px 1100px #FFF, 150px 1250px #FFF, 300px 1400px #FFF, 400px 1550px #FFF, 550px 1200px #FFF, 650px 1350px #FFF, 750px 1500px #FFF, 900px 1150px #FFF, 1050px 1300px #FFF, 1200px 1450px #FFF, 1350px 1100px #FFF, 1500px 1250px #FFF, 1650px 1400px #FFF, 1800px 1550px #FFF, 1950px 1200px #FFF, 2100px 1350px #FFF, 2250px 1500px #FFF, 2400px 1150px #FFF, 2550px 1300px #FFF, 2700px 1450px #FFF, 2850px 1100px #FFF, 3000px 1250px #FFF;
+    animation: animateStar 100s linear infinite;
+}
+
+/* Star Layer 2: Medium, Slower Stars (Less Dense Layer) */
+body::after {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    z-index: -1;
+    /* DIRECTLY INJECTED THE VALUE OF $star-shadows-medium */
+    box-shadow: 50px 50px #FFF, 250px 150px #FFF, 500px 250px #FFF, 750px 50px #FFF, 1000px 350px #FFF, 1250px 100px #FFF, 1500px 450px #FFF, 1750px 200px #FFF, 2000px 400px #FFF, 2250px 150px #FFF, 2500px 300px #FFF, 2750px 50px #FFF, 3000px 250px #FFF, 50px 750px #FFF, 250px 850px #FFF, 500px 950px #FFF, 750px 650px #FFF, 1000px 750px #FFF, 1250px 900px #FFF, 1500px 600px #FFF, 1750px 800px #FFF, 2000px 950px #FFF, 2250px 650px #FFF, 2500px 850px #FFF, 2750px 700px #FFF, 3000px 900px #FFF, 50px 1200px #FFF, 250px 1350px #FFF, 500px 1500px #FFF, 750px 1150px #FFF, 1000px 1300px #FFF, 1250px 1450px #FFF, 1500px 1100px #FFF, 1750px 1250px #FFF, 2000px 1400px #FFF, 2250px 1150px #FFF, 2500px 1350px #FFF, 2750px 1200px #FFF, 3000px 1400px #FFF;
+    animation: animateStar 150s linear infinite;
+}
+/* --- END STAR EFFECT CSS --- */
+
+
+header{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    /* ADD: Transition for a smoother fixed header appearance */
+    transition: background-color 0.3s ease;
+}
+
+.logo{
+    font-size: 3rem;
+    color: #9370DB; /* ROXO ALTERADO */
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+/* --- STYLES FOR SECTION LINKS --- */
+.section-links{
+    display: flex; /* Arrange links in a row */
+    gap: 3rem; /* Space between links */
+    margin: 2rem 0; /* Vertical space above/below the links */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.section-links a{
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.section-links a:hover{
+    color: #9370DB; /* ROXO ALTERADO */
+    border-bottom: 3px solid #9370DB; /* ROXO ALTERADO */
+}
+/* --- END STYLES --- */
+
+section{
+    /* Increased top padding to push content below the fixed header */
+    min-height: 100vh;
+    padding: 7rem 9% 5rem; 
+    position: relative; /* Ensure sections are positioned above the stars */
+    z-index: 2;
+}
+
+/* New General Heading Style */
+.heading{
+    font-size: 8rem;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: black;
+    position: relative; 
+    z-index: 2;
+}
+
+/* --- HOME CONTENT STYLING (with Animated Border) --- */
+/* New: Animation for the border */
+@keyframes animateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.home-content{
+    position: relative; /* Crucial for positioning the pseudo-element */
+    padding: 2rem; /* Give some inner padding to keep text off the border */
+    border-radius: 1rem; /* Match the aesthetic of other boxes */
+    overflow: hidden; /* Hide parts of the pseudo-element that go outside */
+}
+.home-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, transparent, transparent, #9370DB); /* Purple gradient */
+    z-index: -1; /* Behind the content */
+    animation: animateBorder 6s linear infinite; /* Animation */
+    transform-origin: center center; /* Rotate around the center */
+    border-radius: 1rem; /* Match the parent's border-radius */
+}
+.home-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #101010; /* Slightly lighter black than body for a subtle inset */
+    border-radius: 1rem;
+    z-index: -1;
+    /* Optional: Small inner border to refine the glowing effect */
+    border: 3px solid rgba(147, 112, 219, 0.1); 
+}
+/* --- END HOME CONTENT STYLING --- */
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: #9370DB; /* ROXO ALTERADO */
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #9370DB; /* ROXO ALTERADO */
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* --- SOCIAL ICONS STYLING --- */
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #9370DB; /* ROXO ALTERADO */
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #9370DB; /* ROXO ALTERADO */
+}
+
+.social-icons a:hover{
+    color: black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #9370DB; /* ROXO ALTERADO */
+    box-shadow: 0  0 25px #9370DB; /* ROXO ALTERADO */
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #9370DB; /* ROXO ALTERADO */
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #9370DB; /* ROXO ALTERADO */
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale3d(1.03);
+    background-color: #9370DB; /* ROXO ALTERADO */
+    color: black;
+    box-shadow: 0 0 25px #9370DB; /* ROXO ALTERADO */
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: "Editor";
+    color: #9370DB; /* ROXO ALTERADO */
+    animation: words 20s infinite; 
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite; 
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #9370DB; /* ROXO ALTERADO */
+    }
+}
+
+@keyframes words{
+    0%, 30%{ 
+        content: "AMV Editor"; 
+    }
+    31%, 60%{ 
+        content: "Youtube Editor";
+    }
+    61%, 100%{ 
+        content: "Student"; 
+    }
+}
+/* --- END SOCIAL ICONS & TYPING STYLING --- */
+
+
+/* --- SKILLS SECTION STYLING --- */
+.skills h2{
+    margin-bottom: 5rem;
+}
+
+.skills-description-bar {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border: 1px solid #9370DB;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    min-height: 8rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-container{
+    display: grid;
+    /* This creates the layout: 3 columns for large screens, 1 for small */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    /* --- CENTERING FIXES --- */
+    justify-items: center; /* Centers items horizontally within their grid cell */
+    justify-content: center; /* Centers the grid tracks/columns within the container */
+    max-width: 1000px; /* Limits width for better centering on huge screens */
+    margin: 0 auto; /* Centers the skills-container itself */
+    /* --- END CENTERING FIXES --- */
+}
+
+.skills-container .skills-box{
+    padding: 3rem 2rem 4rem;
+    background-color: #1f1f1f; /* Darker background for the cards */
+    border-radius: 2rem;
+    border-bottom: 0.6rem solid #9370DB;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.skills-container .skills-box:hover{
+    transform: scale(1.05);
+    border-color: white; /* Change color on hover */
+    box-shadow: 0 0 25px #9370DB;
+}
+
+.skills-box i{
+    font-size: 5rem;
+    color: #9370DB;
+}
+
+.skills-box h3{
+    font-size: 2.6rem;
+    margin: 1rem 0;
+}
+
+.skills-preview{
+    width: 100%;
+    height: 250px; /* Fixed height for the preview area */
+    background-color: black;
+    border: 2px dashed #9370DB;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    overflow: hidden; 
+}
+
+/* Media Query to adjust layout for two centered columns on larger screens */
+@media (min-width: 1000px) {
+    .skills-container {
+        /* Forces a two-column layout on large screens when only two boxes exist */
+        grid-template-columns: repeat(2, minmax(300px, 1fr)); 
+    }
+}
+/* --- END SKILLS SECTION STYLING --- */
+
+
+/* --- EDUCATION & LANGUAGES SECTION STYLING --- */
+/* The .languages section reuses the container and box styles from .education */
+.education, .languages {
+    /* Uses the existing section padding */
+    min-height: auto; 
+    padding-bottom: 7rem;
+}
+
+.education-content, .languages-container {
+    display: flex;
+    justify-content: center; /* Centers the content blocks horizontally */
+    gap: 3rem;
+    flex-wrap: wrap; 
+    max-width: 1200px; /* Adjusted max width to better fit three language boxes */
+    margin: 0 auto; /* Centers the whole content wrapper */
+}
+
+.education-box {
+    /* Adjusted width to allow three boxes to fit side-by-side more easily */
+    width: 350px; 
+    flex: 1 1 300px; /* Flex property for responsiveness */
+    padding: 3rem 3rem 4rem;
+    background-color: #1f1f1f;
+    border-radius: 2rem;
+    border-bottom: 0.6rem solid #9370DB;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    text-align: left;
+    min-height: 250px;
+    /* Micro-interaction enhancement: A subtle depth shift on hover */
+    transition: transform 0.4s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.4s ease;
+}
+
+.education-box:hover{
+    transform: scale(1.03) translateY(-5px); /* Changed from just scale(1.03) */
+    border-color: white; 
+    box-shadow: 0 0 35px rgba(147, 112, 219, 0.7); /* Slightly stronger shadow on hover */
+    background-color: #242424; /* Subtle background change */
+}
+
+.education-box i{
+    font-size: 5rem;
+    color: #9370DB;
+    margin-bottom: 1rem;
+}
+
+.education-box h3{
+    font-size: 2.6rem;
+    margin: 1rem 0;
+    color: white;
+}
+
+.education-box p, .education-box ul {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.education-box ul {
+    list-style-type: none; 
+    padding-left: 0;
+}
+
+.education-box ul li {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.education-box ul li::before {
+    content: '\f058'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #9370DB;
+    font-size: 1.4rem;
+    top: 0.3rem;
+}
+
+/* Media Query to ensure boxes stack nicely on smaller screens */
+@media (max-width: 1150px) {
+    /* Adjust for screens that can't fit 3 boxes */
+    .education-content, .languages-container {
+        max-width: 900px;
+    }
+}
+@media (max-width: 950px) {
+    .education-content, .languages-container {
+        /* On smaller screens, allow boxes to take full width of container */
+        flex-direction: column;
+        align-items: center; /* Centers the whole column */
+        max-width: 100%;
+    }
+    .education-box {
+        /* Boxes take up to 90% of the available width, stacking vertically */
+        width: 90%; 
+        max-width: 450px; /* Prevent boxes from getting too wide on tablets */
+    }
+}
+/* --- END EDUCATION & LANGUAGES SECTION STYLING --- */
+
+
+/* --- CERTIFICATES SECTION STYLING --- */
+.certificates {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.certificates-container {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 3rem;
+    flex-wrap: wrap; 
+    max-width: 1200px; /* Allow a slightly wider container for three cards */
+    margin: 0 auto;
+}
+
+.certificate-card {
+    /* Responsive sizing for three cards */
+    flex: 1 1 300px; 
+    max-width: 350px;
+    padding: 3rem 2rem 4rem;
+    background-color: #1f1f1f;
+    border-radius: 2rem;
+    border-bottom: 0.6rem solid #9370DB;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.5s ease;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Micro-interaction enhancement: A subtle depth shift on hover */
+    transition: transform 0.4s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.4s ease;
+}
+
+.certificate-card:hover {
+    transform: scale(1.05) translateY(-5px); /* Changed from just scale(1.05) */
+    border-color: white; 
+    box-shadow: 0 0 35px rgba(147, 112, 219, 0.7); /* Slightly stronger shadow on hover */
+    background-color: #242424; /* Subtle background change */
+}
+
+.certificate-card i {
+    font-size: 5rem;
+    color: #9370DB;
+}
+
+.certificate-card h3 {
+    font-size: 2.2rem;
+    margin: 1rem 0 1.5rem;
+    color: white;
+}
+
+.certificate-card p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    text-align: left;
+    flex-grow: 1; /* Pushes the date to the bottom */
+}
+
+.certificate-card .completion-date {
+    font-size: 1.4rem;
+    color: #9370DB;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* Media Query for stacking cards on smaller screens */
+@media (max-width: 1100px) {
+    .certificates-container {
+        /* On screens where three cards don't fit well, use two columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 700px) {
+    .certificates-container {
+        /* On smaller phones, stack cards vertically */
+        flex-direction: column;
+        align-items: center;
+    }
+    .certificate-card {
+        width: 90%;
+        max-width: 450px;
+    }
+}
+/* --- END CERTIFICATES SECTION STYLING --- */
+
+
+/* --- CUSTOM SCROLLBAR STYLING --- */
+
+/* For Webkit browsers (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 1rem; /* Width of the scrollbar itself */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Make the track transparent */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9370DB; /* Purple color for the thumb */
+    border-radius: 0.5rem; /* Rounded edges for a "ball" or pill shape */
+    border: 2px solid black; /* A small border to make it stand out from the background */
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5); /* A subtle glow */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #af81ed; /* Slightly lighter purple on hover */
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.8); /* More prominent glow on hover */
+}
+
+/* For Firefox (different syntax, less customization options for thumb shape) */
+* {
+  scrollbar-width: thin; /* "auto" or "none" */
+  scrollbar-color: #9370DB transparent; /* thumb color and track color */
+}
+
+/* --- END CUSTOM SCROLLBAR STYLING --- */
+
+
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+    
+    .heading {
+        font-size: 5rem;
+    }
+}
+
+/* --- FADE-UP ANIMATION ADDITION (EXISTING) --- */
+
+/* 1. Define the animation keyframes */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start 20px below its final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at its final position */
+    }
+}
+
+/* 2. Apply the animation to the new class 'fade-up-text' */
+.home-content h1 .fade-up-text {
+    /* The span for the name 'Dy' */
+    color: #9370DB; 
+    opacity: 0; /* Start hidden */
+    display: inline-block; /* Essential for transform to work on an inline element */
+    
+    /* Apply the animation */
+    animation: fadeUp 1s ease-out forwards; /* Run for 1s, use ease-out, stay at 100% state */
+    animation-delay: 0.5s; /* Delay it slightly after the page loads */
+}
+
+/* ======================================= */
+/* --- NEW SCROLL-TRIGGERED ANIMATIONS --- */
+/* ======================================= */
+
+/* Base state for elements before they enter the viewport */
+.animate-on-scroll {
+    opacity: 0;
+    transition: 
+        opacity 0.8s ease-out, 
+        transform 0.8s ease-out;
+    will-change: opacity, transform; /* Performance hint */
+}
+
+/* VARIATIONS for different slide effects */
+
+/* Slide from Bottom (Default for most content) */
+.slide-up {
+    transform: translateY(50px);
+}
+
+/* Slide from Left (Good for section headings) */
+.slide-left {
+    transform: translateX(-50px);
+}
+
+/* Slide from Right (Good for alternating content/images) */
+.slide-right {
+    transform: translateX(50px);
+}
+
+/* The active state: visible and in its final position */
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+        /* No transition, fully visible */
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+/* --- END NEW SCROLL-TRIGGERED ANIMATIONS --- */
